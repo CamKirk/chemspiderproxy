@@ -1,0 +1,24 @@
+{
+  "name": "chemspiderproxy",
+  "version": "1.0.0",
+  "description": "proxy for using chemspider API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CamKirk/chemspiderproxy.git"
+  },
+  "author": "CamKirk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CamKirk/chemspiderproxy/issues"
+  },
+  "homepage": "https://github.com/CamKirk/chemspiderproxy#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-http-proxy": "^0.10.0"
+  }
+}
