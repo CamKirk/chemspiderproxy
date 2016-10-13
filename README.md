@@ -1,0 +1,1 @@
+This code uses express.js and and the Node package express-http-proxy to route requests to Chemspider's API with an freely allowed origin.
