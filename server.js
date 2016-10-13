@@ -27,21 +27,22 @@ app.get('/proxy/:mode/:id', proxy('www.chemspider.com', {
     },
     intercept: function(rsp,data,req,res,callback){
         
-        if(req.url==='/favicon.ico'){
-            res.writeHead(200,{'Content-Type':'image/x-icon'});
-            console.log('favicon req');
-            res.end();
-        }
-        
-        
+                
         res.writeHead(200,{'Access-Allow-Control-Origin':"*"})
         res.send(data.toString('utf8'));
     }
     
-       //deal with annoying as heck favicon requests: https://gist.github.com/kentbrew/763822
+       
   
     
 }));
+
+app.get('/favicon.ico',function(req,res){
+    //deal with annoying as heck favicon requests: https://gist.github.com/kentbrew/763822
+    res.writeHead(200,{'Content-Type':'image/x-icon'});
+    console.log('favicon req');
+    res.end();
+})
 
 
 app.listen(process.env.PORT);
