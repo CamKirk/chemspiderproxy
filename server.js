@@ -19,7 +19,7 @@ app.get('/proxy/:meth/:id', proxy('www.chemspider.com', {
     },
     intercept: function(rsp,data,req,res,callback){
         
-        console.log(data);
+        console.log(data.toString('utf8'));
     }
     
     
