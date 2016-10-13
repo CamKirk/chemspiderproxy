@@ -3,13 +3,13 @@ var proxy = require('express-http-proxy');
 var url= require('url');
 var app = express();
 
-app.get('/favicon.ico',function(req,res){
+/*app.get('/favicon.ico',function(req,res){
     //deal with annoying as heck favicon requests: https://gist.github.com/kentbrew/763822
     res.writeHead(200,{'Content-Type':'image/x-icon'});
     console.log('favicon req');
     res.end();
     return
-});
+});*/
 
 app.get('/proxy/:mode/:id', proxy('www.chemspider.com', {
     
@@ -27,20 +27,18 @@ app.get('/proxy/:mode/:id', proxy('www.chemspider.com', {
         }
         
         if(mode == 'm2i'){
-            console.log(url.parse('/InChI.asmx/MoltoInChIKey?inchi_key='+id).path)
-            return url.parse('/InChI.asmx/MoltoInChIKey?inchi_key='+id).path;
+            console.log(url.parse('/InChI.asmx/MoltoInChIKey?mol='+id).path)
+            return url.parse('/InChI.asmx/MoltoInChIKey?mol='+id).path;
         }
         
     },
     intercept: function(rsp,data,req,res,callback){
         
-                
-        res.writeHead(200,{'Access-Allow-Control-Origin':"*"})
+        res.setHeader('Access-Allow-Control-Origin',"*");
+        res.writeHead(200,{'Access-Allow-Control-Origin':"*"});
         res.send(data.toString('utf8'));
     }
     
-       
-  
     
 }));
 
