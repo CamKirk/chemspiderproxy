@@ -12,8 +12,9 @@ app.get('/proxy/:meth/:id', proxy('www.chemspider.com', {
     forwardPath:function(req,res){
         var meth=req.params.meth;
         var id=req.params.id;
-        console.log(url.parse(req.url+'/InChI.asmx/InChIKeyToMol?inchi_key='+id).path)
-        return url.parse(req.url+'/InChI.asmx/InChIKeyToMol?inchi_key='+id).path;
+        console.log(res.url);
+        console.log(url.parse('/InChI.asmx/InChIKeyToMol?inchi_key='+id).path)
+        return url.parse('/InChI.asmx/InChIKeyToMol?inchi_key='+id).path;
         
     },
     intercept: function(rsp,data,req,res,callback){
