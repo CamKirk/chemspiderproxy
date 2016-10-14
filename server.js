@@ -34,7 +34,7 @@ app.get('/proxy/:mode/:id', proxy('www.chemspider.com', {
     },
     intercept: function(rsp,data,req,res,callback){
         
-        res.setHeader('Access-Allow-Control-Origin',"*");
+        res.setHeader('Access-Control-Allow-Origin',"*");
         res.send(data.toString('utf8'));
     }
     
