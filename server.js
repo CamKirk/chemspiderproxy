@@ -27,8 +27,8 @@ app.get('/proxy/:mode/:id', proxy('www.chemspider.com', {
         }
         
         if(mode == 'm2i'){
-            console.log(url.parse('/InChI.asmx/MoltoInChIKey?mol='+id).path)
-            return url.parse('/InChI.asmx/MoltoInChIKey?mol='+id).path;
+            console.log(url.parse('/InChI.asmx/MolToInChIKey?mol='+id).path)
+            return url.parse('/InChI.asmx/MolToInChIKey?mol='+id).path;
         }
         
     },
